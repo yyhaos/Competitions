@@ -4,4 +4,4 @@
 1.29	https://ac.nowcoder.com/acm/contest/330#question  
 1.31	https://ac.nowcoder.com/acm/contest/331#question  
 2.2	https://ac.nowcoder.com/acm/contest/332#question  
-!()[https://raw.githubusercontent.com/yyhaos/Competitions/master/niuke/first%20ak.PNG]
+!()[https://raw.githubusercontent.com/yyhaos/Competitions/master/牛客寒假算法基础集训营/first%20ak.PNG]
