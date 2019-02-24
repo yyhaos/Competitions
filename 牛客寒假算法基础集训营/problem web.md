@@ -4,4 +4,5 @@
 1.29	https://ac.nowcoder.com/acm/contest/330#question  
 1.31	https://ac.nowcoder.com/acm/contest/331#question  
 2.2	https://ac.nowcoder.com/acm/contest/332#question  
-![](https://raw.githubusercontent.com/yyhaos/Competitions/master/Å£¿Íº®¼ÙËã·¨»ù´¡¼¯ÑµÓª/first%20ak.PNG)
+first ak | thank for Mao  
+![](https://raw.githubusercontent.com/yyhaos/Competitions/master/ç‰›å®¢å¯’å‡ç®—æ³•åŸºç¡€é›†è®­è¥/first%20ak.PNG)
