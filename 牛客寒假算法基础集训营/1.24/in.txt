@@ -1,0 +1,11 @@
+3 7
+cnz
+cuber
+moon
+3 cnz A AC
+5 cuber A AC
+6 cnz B CE
+10 cuber C AC
+20 cnz B AC
+30 cuber D TLE
+100 cnz E AC
