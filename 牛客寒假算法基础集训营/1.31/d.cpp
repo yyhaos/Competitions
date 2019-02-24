@@ -1,99 +1,161 @@
+//Problem Web:  https://ac.nowcoder.com/acm/contest/331/D
 #include<bits/stdc++.h>
+#include<ext/rope>
 using namespace std;
-#define INF 99999999
-int NN,k;
-const int N=INF;
 
-int tr(int n)
+#define ll long long
+#define lowbit(x) (x&-x)
+#define rep(i,x,y) for(int i=x;i<=y;i++)
+#define crep(i,x,y) for(int i=x;i>=y;i--)
+#define gcd(x,y) __gcd(x,y)
+#define mem(x,y) memset(x,y,sizeof(x))
+//#define use_t 1
+const double PI=acos(-1.0);
+const double eps=1e-8;
+const ll INF = 100000000;
+const ll maxn=100000;
+const ll q=1e9+7;
+ll ksm(ll a,ll b)
 {
-    int ans=0;
-    while(n>0)
+    ll ans=1LL;
+    while(b>0)
     {
-        ans*2;
-        if(n&1)
-        {
-            ans++;
-        }
-        n/=2;
+        if(b&1LL)
+            ans=ans*a%q;
+        a=a*a%q;
+        b/=2LL;
     }
     return ans;
 }
-int m,s,t;
-int dis[N],vis[N],p[N];
-
-int dp[1110][1110];
-void D(int src)  //src传入的起点
+struct pos
 {
-    for(int i=0; i<m; i++) //初始化起点到所有点的距离
+    ll now,th;
+    pos(ll n=0,ll t=0)
     {
-        dis[i] = dp[src][i];
-        vis[i] = 0;
-        p[i]=0;
+        now=n;
+        th=t;
     }
-    dis[src] = 0; //到自身距离为0
-    vis[src] = 1; //标记 注src=0
-    for(int i=0; i<=tr(NN); i++)
+};
+ll t,n,m;
+ll k,a,b;
+ll tong[2000][2002];
+ll used[maxn+5];
+ll ma[500][500];
+ll pos[1000];
+ll co(const ll i,const ll j)
+{
+    if(i>j)
+        return INF;
+    if(i==j)
+        return 0;
+    ll cha=j-i;
+    ll ans=0;
+    while(cha>0)
     {
-        int ans = INF,k;
-        for(int j=0; j<=tr(NN); j++) // 寻找未被访问过距离起点v0最近的
-        {
-            if(!vis[j] && dis[j] < ans)
-            {
-                k = j;
-                ans = dis[j];
-            }
-        }
-        vis[k] = 1;   //标记已访问
-        if(ans == INF) break; //表示剩下所有点都不通
-        for(int j =0; j<m; j++)  //松弛操作，更新起点到所有未访问点的距离
-        {
-            if(!vis[j] &&  dis[k] + dp[k][j]<dis[j] )
-            {
-                dis[j] = dis[k] + dp[k][j];
-                p[j]=k;//存放前驱节点
-            }
-        }
+      //  cout<<cha<<" "<<lowbit(cha)<<endl;
+        ans++;
+        cha=cha-lowbit(cha);
     }
+    return ans;
 }
-
+ll vis[1000];
+ll dis[1000];
 int main ()
 {
-    for(int i=1;i<=10;i++)
+#ifdef yyhao
+    freopen("in.txt","r",stdin);
+    //freopen("out.txt","w",stdout);
+#endif
+#ifdef use_t
+int ii=1;
+cin>>t;
+for(ii=1;ii<=t;ii++)
+{
+#endif // use_t
+//cout<<co(452,1000000000);
+    mem(used,0);
+    cin>>n>>k;
+    rep(i,1,k)
     {
-        cout<<tr(i)<<endl;
+        cin>>tong[i][0]>>tong[i][1];
     }
-    int t1,t2;
-    cin>>NN>>k;
-    for(int i=1;i<=1024;i++)
+    ll cnt=0;
+    pos[cnt++]=1LL;
+    rep(i,1,k)
     {
-        for(int j=1;j<=1025;j++)
+        pos[cnt++]=tong[i][0];
+        pos[cnt++]=tong[i][1];
+    }
+    pos[cnt++]=n;
+    rep(i,0,cnt-1)
+    {
+        rep(j,0,cnt-1)
         {
-            dp[i][j]=999999999;
-            int x=i-j;
-            if(x<0)
-                x*=-1;
-            if(x&(x-1)==0)
+            ma[i][j]=co(pos[i],pos[j]);
+        }
+    }
+    //cout<<cnt;
+   // cout<<"asd"<<endl;
+    rep(i,1,k)
+    {
+        if(tong[i][0]<tong[i][1])
+        {
+            ma[2*i-1][2*i]=1;
+        }
+        else if(tong[i][0]>tong[i][1])
+        {
+            ma[i*2][2*i-1]=1;
+        }
+        else
+        {
+            ma[i*2][2*i-1]=0;
+            ma[i*2-1][2*i]=0;
+        }
+    }
+  //  cout<<dis[0]<<dis[1];
+    dis[0]=0;
+//    rep(i,0,cnt-1)
+//        cout<<pos[i]<<"\t";
+//    cout<<endl;
+//    rep(i,0,cnt-1)
+//    {
+//        rep(j,0,cnt-1)
+//        {
+//            cout<<ma[i][j]<<"\t";
+//        }
+//        cout<<"\n";
+//    }
+    mem(vis,0);
+    rep(i,1,cnt-1)
+        dis[i]=INF;
+//cout<<ma[0][1];
+    rep(ii,1,cnt)
+    {
+
+        ll minn=0,mindis=INF;
+        rep(i,0,cnt-1)
+        {
+            if(vis[i]==0)
             {
-                dp[i][j]=1;
-                dp[j][i]=1;
+                if(mindis>dis[i])
+                {
+                    minn=i;
+                    mindis=dis[i];
+                }
             }
         }
-    }
-
-    for(int i=1;i<=k;i++)
-    {
-        cin>>t1>>t2;
-        dp[tr(t1)][tr(t2)]=1;
-        dp[tr(t2)][tr(t1)]=1;
-    }
-    for(int i=0;i<=1024;i++)
-    {
-        for(int j=i+1;j<=1024;j++)
+      //  cout<<minn<<endl;
+        vis[minn]=1;
+        ll di=dis[minn];
+        rep(i,0,cnt-1)
         {
-            dp[j][i]=999999999;
+            if(vis[i]==0)
+                dis[i]=min(dis[i],dis[minn]+ma[minn][i]);
         }
     }
-D(0);
-    cout<<dis[tr(NN)];
+    cout<<dis[cnt-1];
+#ifdef use_t
+}
+#endif // use_t
     return 0;
 }
