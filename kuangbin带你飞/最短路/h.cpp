@@ -1,104 +1,104 @@
+//Problem Web:  https://vjudge.net/contest/239087#problem/H
+//#include<bits/stdc++.h>
+#include<stdio.h>
 #include<iostream>
-#include<string.h>
-#include<string>
+#include<math.h>
 #include<stack>
-#include<vector>
+#include<queue>
+#include<algorithm>
+#include<string>
+#include<string.h>
+//#include<ext/rope>
 using namespace std;
-#define rep(a,b,c) for(int a=b;a<=c;a++)
-#define mem(a,b) memset(a,b,sizeof(a))
-vector <int > out[105];
-vector <int > in[105];
-int maze[105][105];
-int ru[105];
-int chu[105];
-int n,m;
-int used[105];
-int find_chu(int t)
-{
-    //cout<<t<<endl;
-    mem(used,0);
-    stack<int> s;
-    s.push(t);
-    int ans=0;
-    used[t]=1;
-    while(!s.empty())
-    {
-        int top=s.top();
-        s.pop();
-        if(out[top].size()>0)
-        rep(i,0,out[top].size()-1)
-        {
-            if(used[i]==1)
-                continue;
-            else
-            {
-                ans++;
-                s.push(out[top][i]);
-                used[out[top][i]]=1;
-            }
-        }
-    }
-    return ans ;
-}
 
-int find_ru(int t)
+#define ll long long
+#define lowbit(x) (x&-x)
+#define rep(i,x,y) for(int i=x;i<=y;i++)
+#define crep(i,x,y) for(int i=x;i>=y;i--)
+#define gcd(x,y) __gcd(x,y)
+#define mem(x,y) memset(x,y,sizeof(x))
+//#define use_t 1
+const double PI=acos(-1.0);
+const double eps=1e-8;
+const ll INF = 100000000;
+const ll maxn=1000;
+const ll q=1e9+7;
+ll ksm(ll a,ll b)
 {
-    //cout<<t<<" 2" <<endl;
-    mem(used,0);
-    stack<int> s;
-    s.push(t);
-    int ans=0;
-    used[t]=1;
-    while(!s.empty())
+    ll ans=1LL;
+    while(b>0)
     {
-        int top=s.top();
-        //cout<<"top:"<<top<<" "<<in[top].size()<<endl;
-        s.pop();
-        if(in[top].size()>0)
-        rep(i,0,in[top].size()-1)
-        {
-            //cout<<in[top][i]<<endl;
-            if(used[in[top][i]]==1)
-                continue;
-            else
-            {
-                ans++;
-                s.push(in[top][i]);
-                used[in[top][i]]=1;
-            }
-        }
+        if(b&1LL)
+            ans=ans*a%q;
+        a=a*a%q;
+        b/=2LL;
     }
     return ans;
 }
 
+ll t,n,m;
+ll M[105][105];
 int main ()
 {
-    //freopen("test.txt","r",stdin);
-    mem(maze,0);
-    scanf("%d%d",&n,&m);
-    rep(i,1,n)
-        chu[i]=ru[i]=-1;
-
-    int s,e;
-
+#ifdef yyhao
+    freopen("in.txt","r",stdin);
+    //freopen("out.txt","w",stdout);
+#endif
+#ifdef use_t
+int ii=1;
+cin>>t;
+for(ii=1;ii<=t;ii++)
+{
+#endif // use_t
+    ll a,b;
+cin>>n>>m;
+        mem(M,0);
     rep(i,1,m)
     {
-        scanf("%d%d",&s,&e);
-        out[s].push_back(e);
-        in[e].push_back(s);
-        //maze[e][s]=-1;
+        cin>>a>>b;
+        M[a][b]=1;
     }
-    //cout<<"111"<<endl;
-    int ans=0;
+//
+//    rep(i,1,n)
+//    {
+//        rep(j,1,n)
+//            cout<<M[i][j]<<" ";
+//        cout<<endl;
+//    }
+    rep(i,1,n)
+    rep(j,1,n)
+    rep(k,1,n)
+    {
+        if(M[j][i]+M[i][k]==2)
+            M[j][k]=1;
+    }
+
+//    rep(i,1,n)
+//    {
+//        rep(j,1,n)
+//            cout<<M[i][j]<<" ";
+//        cout<<endl;
+//    }
+    ll ans=0;
     rep(i,1,n)
     {
-        //cout<<find_chu(i)<<" "<<find_ru(i)<<endl;
-        if(find_chu(i)+find_ru(i)==n)
+        ll cnt=0;
+        rep(j,1,n)
         {
-            //cout<<i<<endl;
-            ans++;
+            if(i==j)
+                continue;
+            if(M[i][j] || M[j][i])
+                cnt++;
         }
+        if(cnt==n-1)
+            ans++;
     }
-    cout<<ans;
+
+    cout<<ans<<endl;
+
+
+#ifdef use_t
+}
+#endif // use_t
     return 0;
 }
