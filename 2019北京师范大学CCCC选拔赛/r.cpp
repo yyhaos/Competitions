@@ -1,4 +1,4 @@
-//Problem Web:  http://fastvj.rainng.com/contest/239087#problem/Q
+//Problem Web:  http://fastvj.rainng.com/contest/239087#problem/R
 //#include<bits/stdc++.h>
 //#include<ext/rope>
 #include<iostream>
@@ -18,7 +18,7 @@ using namespace std;
 #define mem(x,y) memset(x,y,sizeof(x))
 #define pr pair
 #define mp make_pair
-#define use_t 1
+//#define use_t 1
 //const double PI=acos(-1.0);
 const double eps=1e-8;
 const ll INF = 100000000;
@@ -62,4 +62,5 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
     return 0;
 }
+
 
