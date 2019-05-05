@@ -1,5 +1,5 @@
 # Competitions
-## ACM Competitions. Come form 
+## Programming Contest Information 
 
 
 | Web	| ID |
