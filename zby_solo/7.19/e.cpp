@@ -1,4 +1,4 @@
-//Problem Web:
+//Problem Web:http://acm.hdu.edu.cn/contests/contest_show.php?cid=867
 #include<bits/stdc++.h>
 #include<ext/rope>
 #include<iostream>
@@ -18,7 +18,7 @@ using namespace std;
 #define mem(x,y) memset(x,y,sizeof(x))
 #define pr pair
 #define mp make_pair
-#define use_t 1
+//#define use_t 1
 const double PI=acos(-1.0);
 const double eps=1e-8;
 const ll INF = 100000000;
@@ -38,14 +38,14 @@ ll ksm(ll a,ll b)
 }
 
 ll t,n,m;
-ll a[15];
+ll dp[5000000];
+ll si[22];
+vector < ll> bag[22];
 int main ()
 {
 #ifdef yyhao
     freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
-#else
-    freopen("hello.in",stdin);
 #endif
 #ifdef use_t
 ll ii=1;
@@ -53,22 +53,43 @@ cin>>t;
 for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
-    ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
 
+//    cout<<ksm(2,21);
+ll g,b,s;
+    while(cin>>g>>b>>s)
+    {
+        if(g==0 && b==0 && s==0)
+            return 0;
+        for(int i=0;i<22;i++)
+        {
+            bag[i].clear();
+        }
+        for(int i=0;i<b;i++)
+        {
+            cin>>si[i];
+            ll tmp;
+            for(int j=0;j<si[i];j++)
+            {
+                scanf("%lld",&tmp);
+                bag[i].push_back(tmp);
+            }
+        }
 
+//        for(int i=0;i<b;i++)
+//        {
+//            for(int j=0;j<si[i];j++)
+//            {
+//                cout<<bag[i][j]<<" ";
+//            }
+//            cout<<endl;
+//        }
+        ll sum=(1<<b)-1;
+        for(int i=0;i<=sum;i++)
+        {
+            dp[i]=-INF;
+        }
 
+    }
 
 
 #ifdef use_t

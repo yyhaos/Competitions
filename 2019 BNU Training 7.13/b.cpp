@@ -45,7 +45,7 @@ int main ()
     freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
 #else
-    freopen("hello.in",stdin);
+    freopen("hamming.in","r",stdin);
 #endif
 #ifdef use_t
 ll ii=1;
@@ -54,19 +54,20 @@ for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
     ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
+  cin>>n;
+  string a,b;
+  cin>>a>>b;
+  ll cha=0,c2=0;
+  for(int i=0;i<n;i++)
+  {
+        if(a[i]=='1')
+            cha++;
+        if(b[i]=='1')
+            c2++;
 
+  }
+  ll ans=min(2*n-cha-c2,c2+cha);
+  cout<<ans<<'\n';
 
 
 

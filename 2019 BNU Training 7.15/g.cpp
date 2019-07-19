@@ -1,4 +1,4 @@
-//Problem Web:
+//Problem Web:https://codeforces.com/gym/248076/standings/friends/true
 #include<bits/stdc++.h>
 #include<ext/rope>
 #include<iostream>
@@ -18,7 +18,7 @@ using namespace std;
 #define mem(x,y) memset(x,y,sizeof(x))
 #define pr pair
 #define mp make_pair
-#define use_t 1
+//#define use_t 1
 const double PI=acos(-1.0);
 const double eps=1e-8;
 const ll INF = 100000000;
@@ -38,14 +38,12 @@ ll ksm(ll a,ll b)
 }
 
 ll t,n,m;
-ll a[15];
+
 int main ()
 {
 #ifdef yyhao
     freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
-#else
-    freopen("hello.in",stdin);
 #endif
 #ifdef use_t
 ll ii=1;
@@ -53,21 +51,35 @@ cin>>t;
 for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
-    ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
 
+    cin>>n;
+    if(n%2==0)
+    {
+        cout<<"YES\n1\n";
+        for(int i=0;i<n;i+=2)
+        {
+            cout<<"+-";
+        }
+        return 0;
+    }
+    else
+    {
+        if(n==1)
+        {
+            cout<<"NO\n";
+            return 0;
+        }
+        else
+        {
+            cout<<"YES\n3\n";
 
+        }
+        cout<<"-++";
+        for(int i=0;i<n-3;i+=2)
+        {
+            cout<<"+-";
+        }
+    }
 
 
 

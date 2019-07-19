@@ -1,4 +1,4 @@
-//Problem Web:
+//Problem Web:https://codeforces.com/contests/248218
 #include<bits/stdc++.h>
 #include<ext/rope>
 #include<iostream>
@@ -38,14 +38,16 @@ ll ksm(ll a,ll b)
 }
 
 ll t,n,m;
-ll a[15];
+ll a[100005];
+ll lcm(ll x,ll y)
+{
+    return x*y/__gcd(x,y)%q;
+}
 int main ()
 {
 #ifdef yyhao
     freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
-#else
-    freopen("hello.in",stdin);
 #endif
 #ifdef use_t
 ll ii=1;
@@ -53,20 +55,23 @@ cin>>t;
 for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
-    ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
 
+    cin>>n;
+    for(int i=0;i<n;i++)
+    {
+        scanf("%lld",a+i);
+    }
+    ll ans=0;
+
+    for(int i=0;i<n;i++)
+    {
+        for(int j=0;j<n;j++)
+        {
+            ans+=lcm(a[i],a[j]);
+            ans%=q;
+        }
+    }
+    cout<<ans<<endl;
 
 
 
@@ -76,3 +81,4 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
     return 0;
 }
+

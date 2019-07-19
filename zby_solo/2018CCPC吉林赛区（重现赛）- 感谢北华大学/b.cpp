@@ -1,4 +1,4 @@
-//Problem Web:
+//Problem Web:http://acm.hdu.edu.cn/contests/contest_show.php?cid=867
 #include<bits/stdc++.h>
 #include<ext/rope>
 #include<iostream>
@@ -38,36 +38,68 @@ ll ksm(ll a,ll b)
 }
 
 ll t,n,m;
-ll a[15];
+map<string,ll> sq;
 int main ()
 {
 #ifdef yyhao
     freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
-#else
-    freopen("hello.in",stdin);
 #endif
 #ifdef use_t
 ll ii=1;
+sq["London"]=0;
+sq["Beijing"]=8;
+sq["Washington"]=-5;
+sq["Moscow"]=3;
 cin>>t;
 for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
-    ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
+    char mm[5];
+    ll h;
+    scanf("%lld:%lld %s",&h,&m, mm);
+//    cout<<mm<<endl;
+    h%=12;
+    if(mm[0]=='P')
+    {
+        h+=12;
+    }
+    cout<<"Case "<<ii<<": ";
+    string a,b;
+    cin>>a>>b;
+    ll cha=sq[a]-sq[b];
+//    cout<<cha<<endl;
+    ll hn=h-cha;
+//    cout<<hn<<endl;
+
+    if(hn >=24 )
+    {
+        hn-=24;
+        cout<<"Tomorrow ";
+    }
+    else if(hn<0)
+    {
+        hn+=24;
+        cout<<"Yesterday ";
+    }
+    else
+    {
+        cout<<"Today ";
+    }
 
 
+    ll hh=hn%12;
+    if(hh==0)
+        hh=12;
+    printf("%lld:%02lld ",hh,m);
+    if(hn>=12)
+    {
+        //hn-=12;
+        cout<<"PM\n";
+    }
+    else
+        cout<<"AM\n";
+  //  cout<<a<<" "<<b<<endl;
 
 
 

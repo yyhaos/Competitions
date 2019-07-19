@@ -38,12 +38,12 @@ ll ksm(ll a,ll b)
 }
 
 ll t,n,m;
-ll a[15];
+
 int main ()
 {
 #ifdef yyhao
     freopen("in.txt","r",stdin);
-    //freopen("out.txt","w",stdout);
+    //freopen("robots.in","r",stdout);
 #else
     freopen("hello.in",stdin);
 #endif
@@ -53,19 +53,7 @@ cin>>t;
 for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
-    ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
+
 
 
 
@@ -76,3 +64,4 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
     return 0;
 }
+

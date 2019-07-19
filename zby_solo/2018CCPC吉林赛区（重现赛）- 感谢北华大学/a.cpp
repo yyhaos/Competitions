@@ -1,4 +1,4 @@
-//Problem Web:
+//Problem Web:http://acm.hdu.edu.cn/contests/contest_show.php?cid=867
 #include<bits/stdc++.h>
 #include<ext/rope>
 #include<iostream>
@@ -23,7 +23,7 @@ const double PI=acos(-1.0);
 const double eps=1e-8;
 const ll INF = 100000000;
 const ll maxn=1000;
-const ll q=1e9+7;
+const ll q=1e18+7;
 ll ksm(ll a,ll b)
 {
     ll ans=1LL;
@@ -38,34 +38,47 @@ ll ksm(ll a,ll b)
 }
 
 ll t,n,m;
-ll a[15];
+ll ty[1000500];
 int main ()
 {
 #ifdef yyhao
     freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
-#else
-    freopen("hello.in",stdin);
 #endif
 #ifdef use_t
 ll ii=1;
 cin>>t;
+    for(int i=1;i<=1000000;i++)
+    {
+        ty[i]=ksm(i+1,2)-1;
+    }
 for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
-    ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
+    cin>>n;
+//    ll tmp=0;
+//    for(int i=1;i<=n;i++)
+//    {
+//        tmp+=n/i;
+//    }
+//    cout<<tmp<<" "<<tmp%2<<endl;
+//
+    ll lo=lower_bound(ty+1,ty+1+1000000,n)-ty;
+//
+//    cout<<lo<<endl;
+
+    if(lo%2)
+    {
+        cout<<"Case "<<ii<<": odd\n";
+    }
+    else
+        cout<<"Case "<<ii<<": even\n";
+//    if(tmp%2)
+//    {
+//        cout<<"odd\n";
+//    }
+//    else
+//        cout<<"even\n";
 
 
 

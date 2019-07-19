@@ -18,7 +18,7 @@ using namespace std;
 #define mem(x,y) memset(x,y,sizeof(x))
 #define pr pair
 #define mp make_pair
-#define use_t 1
+//#define use_t 1
 const double PI=acos(-1.0);
 const double eps=1e-8;
 const ll INF = 100000000;
@@ -38,14 +38,15 @@ ll ksm(ll a,ll b)
 }
 
 ll t,n,m;
-ll a[15];
+string a;
+ll dp[200005][30];
+
+
 int main ()
 {
 #ifdef yyhao
     freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
-#else
-    freopen("hello.in",stdin);
 #endif
 #ifdef use_t
 ll ii=1;
@@ -53,20 +54,31 @@ cin>>t;
 for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
-    ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
+    while(cin>>n>>l>>k)
+    {
+            cin>>a;
+        for(int i=0;i<=n;i++)
+        {
+            for(int j=0;j<=k;j++)
+            {
+                dp[i][j]=INF;
+            }
+        }
+        dp[0][0]=0;
+        for(int now=0;a[now];now++)
+        {
+            for(int sta=0;sta<k;sta++)
+            {
 
+            }
+        }
+
+
+
+    }
+
+
+//    cin>>a;
 
 
 
@@ -76,3 +88,5 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
     return 0;
 }
+
+

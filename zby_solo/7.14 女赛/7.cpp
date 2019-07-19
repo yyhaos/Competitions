@@ -18,7 +18,7 @@ using namespace std;
 #define mem(x,y) memset(x,y,sizeof(x))
 #define pr pair
 #define mp make_pair
-#define use_t 1
+//#define use_t 1
 const double PI=acos(-1.0);
 const double eps=1e-8;
 const ll INF = 100000000;
@@ -38,14 +38,12 @@ ll ksm(ll a,ll b)
 }
 
 ll t,n,m;
-ll a[15];
+
 int main ()
 {
 #ifdef yyhao
     freopen("in.txt","r",stdin);
     //freopen("out.txt","w",stdout);
-#else
-    freopen("hello.in",stdin);
 #endif
 #ifdef use_t
 ll ii=1;
@@ -53,20 +51,27 @@ cin>>t;
 for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
-    ll fa=1;
-   for(int i=0;i<12;i++)
-   {
-        scanf("%lld",&a[i]);
-        if(i>=1 && i<=3 && a[i] <= a[i-1])
-            fa=0;
-        if(i>3 && a[i]<=a[3])
-            fa=0;
-   }
-   if(fa)
-    cout<<"yes\n";
-   else
-    cout<<"no\n";
 
+    while(cin>>n)
+    {
+ double r=1;
+//    cout<<PI<<endl;
+    double du=1.0/n *2*PI;
+    double hd=du/2;
+//    cout<<hd<<endl;
+//    cout<<sin(hd)<<endl;
+    double siban=sin(hd)*r*cos(hd)/2;
+    double sisanjiao=siban*2;
+    double now=sisanjiao*n;
+//    cout<<siban<<endl;
+//    cout<<now<<endl;
+    double bian=sin(hd)*r*2;
+    double h=r-r*cos(hd);
+    double san=h*bian/2;
+    printf("%.6f\n",now+san);
+    }
+
+//    cout<<san+now<<endl;
 
 
 
@@ -76,3 +81,5 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
     return 0;
 }
+
+
