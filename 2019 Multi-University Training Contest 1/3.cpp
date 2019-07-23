@@ -18,27 +18,44 @@ using namespace std;
 #define mem(x,y) memset(x,y,sizeof(x))
 #define pr pair
 #define mp make_pair
-//#define use_t 1
+#define use_t 1
 const double PI=acos(-1.0);
 const double eps=1e-8;
 const ll INF = 100000000;
 const ll maxn=1000;
 const ll q=1e9+7;
-ll ksm(ll a,ll b,ll qq=q)
+
+ll ksm(ll a,ll b)
 {
     ll ans=1LL;
     while(b>0)
     {
         if(b&1LL)
-            ans=ans*a%qq;
-        a=a*a%qq;
+            ans=ans*a%q;
+        a=a*a%q;
         b/=2LL;
     }
     return ans;
 }
 
 ll t,n,m;
-
+struct milk
+{
+    ll r,c,t;
+    milk(ll _r=0,ll _c=0,ll _t=0)
+    {
+        r=_r;
+        c=_c;
+        t=_t;
+    }
+    friend bool operator < (milk a, milk b)
+    {
+        if(a.r!=b.r)
+            return a.r<b.r;
+        else
+            return a.c<b.c;
+    }
+}mk[10005];
 int main ()
 {
 #ifdef yyhao
@@ -52,8 +69,21 @@ for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
 
+    ll ans=0;
+    cin>>n>>m>>k;
+    for(int i=0;i<k;i++)
+    {
+        scanf("%lld%lld%lld",&mk[i].r,&mk[i].c,&mk[i].t);
+        ans+=mk[i].t;
+    }
+    sort(mk,mk+k);
 
-    cout<<ksm(2,30,1e18);
+    for(int i=0;i<k;i++)
+    {
+        ll tr=mk[i].r,tc=mk[i].c;
+
+    }
+
 
 
 
@@ -62,4 +92,5 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
     return 0;
 }
+
 

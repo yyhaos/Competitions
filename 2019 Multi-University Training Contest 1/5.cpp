@@ -24,21 +24,21 @@ const double eps=1e-8;
 const ll INF = 100000000;
 const ll maxn=1000;
 const ll q=1e9+7;
-ll ksm(ll a,ll b,ll qq=q)
+ll ksm(ll a,ll b)
 {
     ll ans=1LL;
     while(b>0)
     {
         if(b&1LL)
-            ans=ans*a%qq;
-        a=a*a%qq;
+            ans=ans*a%q;
+        a=a*a%q;
         b/=2LL;
     }
     return ans;
 }
 
 ll t,n,m;
-
+ll a[10005][10005];
 int main ()
 {
 #ifdef yyhao
@@ -53,7 +53,7 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
 
 
-    cout<<ksm(2,30,1e18);
+
 
 
 
@@ -62,4 +62,5 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
     return 0;
 }
+
 
