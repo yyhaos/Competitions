@@ -1,5 +1,6 @@
-## ±ÈÈüÊ±¼ä 2019/3/30  
-## ±ÈÈüµØµã ±±Àí¹¤´ó ·¹²ËÏã ÌìÆø·ç´óÀä  
-## ±ÈÈüĞ¡½á ÈË¶à Ìâ¶à ×Ö·û´®´¦ÀíÌâ¶à Ê±¼ä½ô  
-## ±ÈÈü½á¹û ![](https://raw.githubusercontent.com/yyhaos/Competitions/master/2019ÌìÌİÈü/IMG_8612.PNG)
-## ±ÈÈü½á¹ûweb ![](https://gplt.patest.cn/rank)
+## æ¯”èµ›æ—¶é—´ 2019/3/30  
+## æ¯”èµ›åœ°ç‚¹ åŒ—ç†å·¥å¤§ é¥­èœé¦™ å¤©æ°”é£å¤§å†·  
+## æ¯”èµ›å°ç»“ äººå¤š é¢˜å¤š å­—ç¬¦ä¸²å¤„ç†é¢˜å¤š æ—¶é—´ç´§  
+## æ¯”èµ›ç»“æœ ![](https://raw.githubusercontent.com/yyhaos/Competitions/master/2019å¤©æ¢¯èµ›/IMG_8612.PNG)
+## æ¯”èµ›ç»“æœweb ![](https://gplt.patest.cn/rank)
+## æ¯”èµ›ç…§ç‰‡ ![](https://raw.githubusercontent.com/yyhaos/Competitions/master/2019%E5%A4%A9%E6%A2%AF%E8%B5%9B/%E5%90%88%E7%85%A7.jpg)
