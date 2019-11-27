@@ -1,0 +1,4 @@
+3 1
+
+(r+R) sin du = R
+R=r/(1-sindu)
