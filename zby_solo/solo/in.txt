@@ -1,0 +1,56 @@
+n*m 个字符  
+每个字符检验： k个字符串，
+对于每个字符串， 这个字符都在它的位置有22个可能
+对于每个可能 都要22次都字符串
+
+n*m*k*22*22 = 40^2 * 200 * 20^2= 2000000
+
+P*GTG
+**TGG
+
+1
+x , s
+(G && x | s  )ans++
+xxsTG
+xsTGG
+
+***GTG
+**PG*G
+***G#G
+**TG*G
+
+++++
+xxxsTG
+xxxxsG
+xxsx#G
+xsTs*G
+M
+
+s?
+xs?
+x#
+
+sT
+xs*
+x#
+
+s*
+xsT
+x#
+
+sT
+xsT
+x#
+
+Ts
+sx
+xx
+
+机器学习、人工智能都会提到游戏
+x ( dang x,y,smell1, smell2,smell3,0)
+
+(x+1,y,ss,ss,ss,time)
+
+(x+1,y,ss,ss,ss,time+1)
+
+
