@@ -52,7 +52,33 @@ for(ii=1;ii<=t;ii++)
 {
 #endif // use_t
 
+    string str1;
+    cin>>str1;
+    int s1=str1.length();
+    string str2;
+    cin>>str2;
+    int s2=str2.length();
+    if(s1>s2){
+            printf(">");return 0;
 
+    }
+    else if(s1<s2){
+        printf("<");return 0;
+    }
+
+    int  deng=0;
+    for(int i=0;str1[i];i++){
+        if(str1[i]>str2[i]){
+            printf(">");
+            return 0;
+        }
+        else if(str1[i]<str2[i]){
+            printf("<");
+            return 0;
+        }
+    }
+    printf("=");
+    return 0;
 
 
 
@@ -62,5 +88,6 @@ for(ii=1;ii<=t;ii++)
 #endif // use_t
     return 0;
 }
+
 
 
